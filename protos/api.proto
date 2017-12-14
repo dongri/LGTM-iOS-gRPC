@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package api;
+
+service LGTM {
+  rpc Items (ItemsRequest) returns (ItemsResponse) {}
+  rpc Upload (UploadRequest) returns (UploadResponse) {}
+  rpc Item (ItemRequest) returns (ItemResponse) {}
+}
+
+message Item {
+    int64 id = 1;
+    string url = 2;
+}
+
+message ItemsRequest {
+  int64 page = 1;
+}
+
+message ItemsResponse {
+  repeated Item items = 1;
+}
+
+message ItemRequest {
+  int64 id = 1;
+}
+
+message ItemResponse {
+  Item item = 1;
+}
+
+message UploadRequest {
+  string image = 1;
+}
+
+message UploadResponse {
+  string result = 1;
+}
+
